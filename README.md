@@ -17,28 +17,12 @@ To complete this project, students should have the following:
 
 ## Concepts
 
-HTML | Description
------|------------
-HTML | **H** yper **T** ext **M** arkup **L** anguage used to create the structure of web pages.
-element | An element is an individual part, or a building block, of a web page. Ex. div, ul, li..etc.
-attribute | A modifier of an element.
-id | An **attribute** that specifies a unique id for an element.
-
-CSS | Description
-----|------------
-CSS | **C** ascading **S** tyle **S** heets that describes how HTML elements are displayed.
-flexbox | A layout mode to improve how items are aligned or ordered on a page even within items of unknown size.
-margin |  A CSS property that specifies the outer space of an **element**.
-padding | A CSS property that specifies the inner space of an **element**.
-
 JS | Description
 ---|-------------
 JS | **J** ava **S** script
-somethingthatsaString.split('') | A String method that splits a ```String``` into an array of each character. The ```('')``` denotes the separator - try it out on http://jsbin.com!
+somethingthatsaString.split('') | A String method that splits a ```String``` into an array of each character. The ```('')``` denotes the separator - try it out with different separators (instead of just the ```''```) on http://jsbin.com to see how it works!
 String.fromCharCode(Unicode values) | A String method that returns a string created by using the specified sequence of Unicode values.
 String.charCodeAt(index) | A String method that returns a number representing the UTF-16 code unit value of the character at the given index.
-
-
 
 Note: Flexbox comes in very handy! It is helpful to remember the following common CSS Flexbox properties. Possible values for each CSS property are separated with a ``` | ```.
 * ```display: flex;``` Use this to activate Flexbox! If you do not have this property, other flexbox properties will not work.
