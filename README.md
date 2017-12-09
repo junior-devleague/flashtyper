@@ -20,7 +20,7 @@ To complete this project, students should have the following:
 HTML | Description
 -----|------------
 HTML | **H** yper **T** ext **M** arkup **L** anguage used to create the structure of web pages.
-element | An element is an individual part, or a building block, of a web page. Ex. <div>, <ul>, <li>..etc.
+element | An element is an individual part, or a building block, of a web page. Ex. div, ul, li..etc.
 attribute | A modifier of an element.
 id | An **attribute** that specifies a unique id for an element.
 
@@ -36,7 +36,7 @@ JS | Description
 JS | **J** ava **S** script
 somethingthatsaString.split('') | A String method that splits a ```String``` into an array of each character. The ```('')``` denotes the separator - try it out on http://jsbin.com!
 String.fromCharCode(Unicode values) | A String method that returns a string created by using the specified sequence of Unicode values.
-String.charCodeAt(index) | A number representing the UTF-16 code unit value of the character at the given index.
+String.charCodeAt(index) | A String method that returns a number representing the UTF-16 code unit value of the character at the given index.
 
 
 
@@ -97,4 +97,4 @@ To complete Part III, fulfill the following requirements:
 
 4. Target the ```class``` of typed. *Note: This doesn't exist yet, we will be creating elements with this class in our JS!*
 * Set the ```color``` to rgb(50,50,50). This is a lighter than black color.
-* Set the ```font-size``` to 20px. 
+* Set the ```font-size``` to 20px.
