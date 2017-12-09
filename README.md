@@ -90,7 +90,7 @@ To complete Part III, fulfill the following requirements:
 
 ```JavaScript
 window.onload = function() {
-  //Put all of your code goes in here
+  //Put all of your code in here
 }
 ```
 2. Create a ```variable``` called flashcard that will store your element with an id of flashcard. *Hint: Use document.getElementById('putYourIdHere');*
@@ -101,23 +101,32 @@ window.onload = function() {
 
 5. Create a ```variable``` called counter. Do not store anything in here yet. *The counter will be used to track which letter the user is currently on while typing. Each press of the keyboard will increment this counter. If the counter is equal to the length of the character array, the user has reached the end of the card and can move on to the next one.*
 
-6. Create a ```variable``` called currentLength. Do not store anything in here yet.
-
-7. Create a ```function``` called generateCard. In this function, do the following:
+6. Create a ```function``` called generateCard. In this function, do the following:
 * Create a ```variable``` called randomNumber. In this variable store a random integer from 0 to the length of the array called terms found in your data.js file.
 * Use your randomNumber and assign a random note object from the terms array (e.g., note1, note3, note13..etc.) to the currentCard variable. *Hint: How do you access an element from an array?*
+``` JavaScript
+var array = ['turtle', 'bat'];
+array[0]; // Returns 'turtle'.
+
+// How do we return a random element from our array?
+```
 * Return the value of currentCard. *Hint: Don't overthink this! Use the keyword return.*
 
-8. Create a ```function``` called createElements that will take in a parameter called ```card```. This parameter ```card``` will be a placeholder for a random card that we obtain from our generateCard function. In this function, do the following:
+7. Create a ```function``` called createElements that will take in a parameter called ```card```. This parameter ```card``` will be a placeholder for a random card that we obtain from our generateCard function. In this function, do the following:
+* Make sure the flashcard doesn't have anything in it before populating it with something. Set the innerHTML of the flashcard to "".
 * Assign the value of 0 to your counter variable.
-* Assign a character array of the description of the card into the charArray variable.  *If you look inside the data.js file, the terms array is an array of objects. Each object has a property called description. How do we 1). access the property description from our card object and 2). make that into an array of characters?*
+* Assign a character array of the description of the card into the charArray variable.  **If you look inside the data.js file, the terms array is an array of objects. Each object has a property called description. How do we 1). access the property description from our card object and 2). make that into an array of characters?**
   * An array of characters can be obtained by using the method String.split('')! Substitute the word string for an actual string.
+
+  ``` JavaScript
+  "hello".split(''); //Returns ['h','e','l','l','o']
+  ```
 * Create a for loop that will iterate over the length of the ```charArray```. In this loop, do the following:
-  * Create a variable p that will store a newly created 'P' (paragraph) element.
+  * Create a variable p that will store a **newly created** 'P' (paragraph) element.
   * Assign each character from the charArray to the innerHTML of p. Use ```i```! *Hint: p.innerHTML = The ith element of the charArray*
   * Append this p element to the flashcard.  
 
-9. Add an ```Event Listener``` to the ```window``` that will listen for a ```keydown```. On key down, create a function that will take in ```event``` as the parameter. In this function, do the following:
+8. Add an ```Event Listener``` to the ```window``` that will listen for a ```keydown```. On key down, create a function that will take in ```event``` as the parameter. In this function, do the following:
   * Create a variable called currentChar and store the character code of the 1st character in the description of the currentCard using our ```currentCard``` and ```counter``` variables. To do that, we can use the ```charCodeAt``` String method.
 
   ``` JavaScript
@@ -127,13 +136,13 @@ window.onload = function() {
   "hello".charCodeAt(1);
   // This will print out the character code of "e", the character at index 1.
   ```
-    * This sounds like a lot so let's break it down. We want to 1). Access the value of the description property from our currentCard variable (Remember currentCard is storing an object!). 2). Get the character code at index 0 of the description string using the above String method.
+    * This sounds like a lot so let's break it down. We want to 1). Access the description from our currentCard (Remember currentCard is an object!). 2). Get the character code at index 0 (use the counter) of the description string using the above String method.
   * Create a variable called currentKeyCode and store the String representing the currentChar character code that we obtained. To do that, we can use the ```String.fromCharCode(character)``` method as follows:
     ``` JavaScript
     String.fromCharCode(2333);
     // This will return a string that the character code 2333 represents. Change the 2333 to the character we are interested in changing to a String.
     ```
-  * Create a variable called currentInput and store the String representing the character code of the keyCode of the key the user is pressing on the keyboard. *Hint: You know how to generate a String of a specific character code. The character code we are interested in now is that of the current key being pressed. We can access this using event.keyCode!*
+  * Create a variable called currentInput and store the String representing the character code of the keyCode of the key the user is pressing on the keyboard. *Hint: You know how to generate a String of a specific character code. Use the same pattern as the one you just used in the previous step but now the character code we are interested in is that of the current key being pressed. We can access this using event.keyCode!*
 
   * Let's check if the currentInput (what is being pressed) is equal to the upper case version of the currentKeyCode (the letter that the user is "on" now). Why uppercase? The keydown event uses the uppercase letter's code whether the user types in lowercase or uppercase.
     * Create an if statement that checks if ```currentInput``` is equal to the uppercase version of ```currentKeyCode```.
@@ -143,9 +152,18 @@ window.onload = function() {
       //This will select all of the p elements and store it into a nodelist.
       ```
 
-      * All the p elements are now stored in something called a nodelist. A nodelist is a collection of DOM elements. In this case, it is a collection of p elements. It is like an array, but it actually is not a real array. However, we can still access elements from it like an array. If we correctly type in the right letter of the 1st p element, we want the 1st p element to get bigger and change color! We already made a class called "typed" to have the styles we want, so access the element at the counter's position from your ```pElements``` nodelist and set a class name ```typed``` to it.
+      * All the p elements are now stored in something called a **NodeList**. A NodeList is a collection of DOM elements. In this case, it is a collection of p elements. It is not an array, but it is similar. We can still access elements from it like an array. If we correctly type in the right letter of the 1st p element, we want the 1st p element to get bigger and change color! We already made a class called "typed" to have the styles we want, so access the element at the **counter's position** from your ```pElements``` nodelist and set a class name ```typed``` to it.
+      ``` JavaScript
+      pElements[index].className += "classNameHere";
+      ```
       * Now, increment your counter by 1 so we can go to the next character.
       * Create an if statement that will check if the ```counter``` is equal to the length of the ```charArray```. In this if statement, do the following:
-        * Set the counter back to 0.
-        * Set the innerHTML of the flashcard to "" to reset the card's contents.
-        * Call the createElements function and pass in the function generateCard(). What's going on here? The generateCard function will return a random card that the createElements functions can use! 
+        * Call the createElements function and pass in the function generateCard(). What's going on here? The generateCard function will return a random card that the createElements functions can use!
+9. We need to populate the flashcard when the window first loads. So, let's call the createElements function and pass in the function generateCard() in the window.onload function to get our first flashcard ready to go!
+
+### Stretch Goals
+
+1. Change the styles of the ```class``` typed to have the styles you want when the correct letter is typed.
+2. Set an interval that will generate and create a new card every 10000 seconds. Create a global variable called points and set its value to 0. In your Event Listener if statement that checked if counter === the charArray.length, increment the point variable. Create a div in your HTML to serve as a scoreboard and set its initial value to 0 (in HTML). If you successfully finished a card, change the innerHTML of the scoreboard to display the new number of points!
+3. Is there a way to visualize this timer? See if you can create a way for us to see when we've almost run out of time!
+4. Create a div inside of your flashcard that will help us to visualize what language the note card is about. Style it so that it looks like a small circle on the upper right corner of the card. If the card's language is JavaScript, make the circle yellow. If it is HTML, make the circle red. 
